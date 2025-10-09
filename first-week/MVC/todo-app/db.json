@@ -1,0 +1,8 @@
+{
+  "todos": [
+    { "id": 1, "text": "Learn Express", "completed": false },
+    { "id": 2, "text": "Learn MongoDB", "completed": true },
+    { "id": 3, "text": "Learn React", "completed": false },
+    { "title": "Complete assignment", "completed": false, "id": 4 }
+  ]
+}
