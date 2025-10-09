@@ -83,4 +83,28 @@ const deleteTicket = (req, res) => {
     res.status(200).json({ "message": "Ticket deleted successfully" });
 };
 
-module.exports = { getAllTickets , addTicket , getTicketById , updateTicket , deleteTicket};
+const resovleTicket = (req, res) => {
+    let id = req.params.id;
+
+    let { tickets, data } = getData();
+
+    let index = tickets.findIndex(ticket => ticket.id == id);
+
+    if (index == -1) {
+        res.status(404).json({ "message": "Ticket not found" });
+    } else {
+        let updatedTickets = tickets.map((ticket, i) => {
+            if (ticket.id == id) {
+                return { ...ticket, status: 'resolved' };
+            } else {
+                return ticket;
+            }
+        });
+        tickets = updatedTickets;
+        data.tickets = tickets;
+    }
+    addOrUpdateTickets(data);
+    res.status(200).json({ "message": "Ticket resolved successfully", "ticket": tickets[index] });
+};
+
+module.exports = { getAllTickets , addTicket , getTicketById , updateTicket , deleteTicket , resovleTicket};
