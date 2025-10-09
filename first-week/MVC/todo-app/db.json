@@ -1,8 +1,15 @@
 {
   "todos": [
-    { "id": 1, "text": "Learn Express", "completed": false },
-    { "id": 2, "text": "Learn MongoDB", "completed": true },
-    { "id": 3, "text": "Learn React", "completed": false },
-    { "title": "Complete assignment", "completed": false, "id": 4 }
+    { "id": 1, "completed": true, "title": "Learn Express" },
+    { "id": 2, "title": "Learn MongoDB", "completed": false },
+    { "id": 3, "title": "Learn Mongoose", "completed": false },
+    { "id": 4, "title": "Learn EJS", "completed": false },
+    { "id": 5, "title": "Learn Node.js", "completed": false },
+    { "id": 6, "title": "Learn React", "completed": false },
+    { "id": 7, "title": "Learn Next.js", "completed": false },
+    { "id": 8, "title": "Learn Tailwind CSS", "completed": false },
+    { "id": 9, "title": "Learn Prisma", "completed": false },
+    { "id": 10, "title": "Learn TypeScript", "completed": false }
+
   ]
 }
