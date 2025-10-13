@@ -1,13 +1,14 @@
 const express = require('express');
-
+const taskRouter = require('./routes/task.routes');
 const app = express();
 const PORT = 3030;
 
-// app.use(express.json());
 
 app.get('/test', (req, res) => {
     res.send('Test route is working')
 });
+
+app.use('/tasks', taskRouter);
 
 app.use((req, res) => {
     res.status(404).json({ 'error': '404 : Route Not found' })
