@@ -1,25 +1,24 @@
 const mongoose = require('mongoose');
-const connectDB = require('../configs/db');
 
 const authorSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        // required: true,
         unique: true
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
         unique: true,
     },
     bio: {
         type: String,
     },
-    books: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Book'
-        }
+    books : [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: 'Book'
+    //     }
     ],
     createdAt: {
         type: Date,

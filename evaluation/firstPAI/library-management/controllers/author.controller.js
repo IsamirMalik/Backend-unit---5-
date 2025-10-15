@@ -25,18 +25,8 @@ const getAuthorById = async (req, res) => {
 
 const createAuthor = async (req, res) => {
     try {
-        let {authorInfo , books } = req.body;
-        const author = await AuthorModel.create(authorInfo);
-
-        let createdBooks = [];
-        if (Array.isArray(books) && books.length > 0) {
-            // Add author reference to each book
-            const booksWithAuthor = books.map(book => ({
-                ...book,
-                author: author._id
-            }));
-            createdBooks = await BookModel.insertMany(booksWithAuthor);
-        }
+        let authorInfo = req.body;
+        const author = await AuthorModel.create(authorInfo);       
 
         res.status(201).json({ 'message': 'Author created successfully' , author });
     } catch (err) {

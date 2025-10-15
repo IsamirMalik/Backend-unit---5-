@@ -8,6 +8,7 @@ const PORT = 3030;
 connectDB();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/test', (req, res) => {
     res.send('Test route is working')
