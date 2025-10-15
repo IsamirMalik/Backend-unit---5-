@@ -18,7 +18,7 @@ const getAuthorById = async (req, res) => {
         const author = await authorModel.findById(id);
         res.status(200).json({'author': author});
     } catch (err) {
-        res.status(500).json({ 'error': 'Internal server error' });
+        res.status(500).json({ 'error': 'Internal server error' , "error" : err.message });
     }
 }
 
@@ -28,7 +28,7 @@ const createAuthor = async (req, res) => {
         const author = await AuthorModel.create(authorInfo).save();
         res.status(201).json({ 'message': 'Author created successfully' , author });
     } catch (err) {
-        res.status(500).json({ 'error': 'Internal server error' });
+        res.status(500).json({ 'error': 'Internal server error' , "error" : err.message  });
     }
 }
 
