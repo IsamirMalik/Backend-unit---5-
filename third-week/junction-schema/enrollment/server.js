@@ -1,5 +1,8 @@
 const express = require('express');
 const LMSRouter = require('./routes/lms.routes');
+const connetToDb = require('./configs/db.configs');
+
+connetToDb();
 const app = express();
 const PORT = process.env.PORT || 3030;
 
@@ -11,7 +14,7 @@ app.get('/test', (req, res) => {
 });
 
 // LMS Routes
-app.use('api/lms' , LMSRouter);
+app.use('/api/lms' , LMSRouter);
 
 // undefined routes
 app.use((req, res) => {
