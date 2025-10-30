@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var URL = process.env.MONGODB_URL;
+var URL = 'mongodb://127.0.0.1:27017/todo-app';
 
 const connectToDb = async () => {
     try {

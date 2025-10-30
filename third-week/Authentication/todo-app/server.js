@@ -30,6 +30,10 @@ app.use((req, res) => {
 // server
 app.listen(PORT, () => {
     try {
+        // console.log(process.env);
+        // console.log(process.env.MONGODB_URL);
+        // console.log(process.env.PORT);
+
         console.log(`Server is running on http://localhost:${PORT}`);
         
     } catch (error) {
