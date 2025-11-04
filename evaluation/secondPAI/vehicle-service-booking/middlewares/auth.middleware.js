@@ -1,19 +1,24 @@
-var jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const UserModel = require('../model/user.model');
+
 const secretKey = "password";
 
 const authMiddleware = (role) => {
     return (req, res, next) => {
         try {
-            console.log("Auth Middleware");
+            
             const token = req.headers?.authorization?.split(" ")[1];
             if (token) {
                 var decoded = jwt.verify(token, secretKey);
+                console.log(decoded);
                 if (decoded) {
                     if (role.includes(decoded.role)) {
-                        console.log(decoded);
+                        // console.log(decoded);
                         req.user = decoded.userId;
                         next();
                     } else {
+                      // console.log('failing from here')
                         res.status(401).json({ message: "Unauthorized" });
                     }
                 } else {
