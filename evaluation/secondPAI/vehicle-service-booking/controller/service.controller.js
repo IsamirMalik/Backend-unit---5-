@@ -22,4 +22,14 @@ const bookService = async (req , res) => {
   
 };
 
-module.exports = { bookService };
+const completed = async (req , res) => {
+  try {
+    const { serviceId } = req.body;
+    let service = await ServiceModel.findOneAndUpdate({ _id : serviceId } , { status : 'completed' });
+    res.status(200).json({ message: "Service Completed" });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" , error: error.message });
+  }
+};
+
+module.exports = { bookService , completed };
