@@ -1,6 +1,7 @@
 const e = require('express');
 const ServiceModel = require('../model/service.model');
-const nodeMailer = require('nodemailer');
+
+const transporter = require('../utils/nodemailer');
 
 const bookService = async (req , res) => {
 
@@ -27,6 +28,15 @@ const completed = async (req , res) => {
     const { serviceId } = req.body;
     let service = await ServiceModel.findOneAndUpdate({ _id : serviceId } , { status : 'completed' });
     res.status(200).json({ message: "Service Completed" });
+
+    const info = await transporter.sendMail({
+    from: '"Sameer Malik" <samirmalik591@gmail.com>',
+    to: "venugopal.burli@masaischool.com , isamirmalik@gmail.com",
+    subject: "Your Vehicle Service is Completed ✔",
+    text: "Hello , Your Vehicle Service is Completed", // plain‑text body
+    // html: "<b>Hello Sir!</b>", // HTML body
+  });
+
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" , error: error.message });
   }
