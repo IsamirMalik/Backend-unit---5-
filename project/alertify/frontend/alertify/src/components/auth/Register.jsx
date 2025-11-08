@@ -1,11 +1,15 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Login from "./Login";
+
 const Register = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <main className="relative py-3 w-2/5 mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-gray-300 to-gray-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y  divide-gray-200">
               <h1 className="text-3xl font-bold text-gray-900 pb-8 text-center">
                 Register
               </h1>
@@ -78,6 +82,10 @@ const Register = () => {
                 </form>
               </div>
             </div>
+                <div className="flex flex-row justify-end mt-6 gap-1 align-bottom">
+                  <small >Already have an account?</small>
+                  <Link className="font-bold text-xs pt-0.5" to="/login">Login</Link>
+                </div>
           </div>
         </div>
       </main>
