@@ -1,5 +1,5 @@
 import logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link , NavLink } from "react-router-dom";
 import IncidentList from "../incidents/IncidentList";
 
 const Header = () => {
@@ -13,16 +13,16 @@ const Header = () => {
         <nav>
           <ul className="flex gap-10 m-2 text-xl font-bold text-white">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" className={({ isActive }) => isActive ? 'text-red-900' : 'text-black-500'}>Home</NavLink>
             </li>
             <li>
-              <Link to="/incidentList" element={<IncidentList />}>Incidents</Link>
+              <NavLink to="/incidentList" className={({ isActive }) => isActive ? 'text-red-900' : 'text-black-500'} element={<IncidentList />}>Incidents</NavLink>
             </li>
             <li>
-              <Link to="/">Help</Link>
+              <NavLink to="/help" className={({ isActive }) => isActive ? 'text-red-900' : 'text-black-500'}>Help</NavLink>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink to="/login" className={({ isActive }) => isActive ? 'text-red-900' : 'text-black-500'} >Login</NavLink>
             </li>
           </ul>
         </nav>

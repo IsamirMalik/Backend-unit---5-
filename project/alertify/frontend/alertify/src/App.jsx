@@ -7,6 +7,8 @@ import { Routes , Route } from 'react-router-dom';
 import Home from './components/dashboard/Dashboard';
 import IncidentList from './components/incidents/IncidentList';
 import ReportIncident from './components/incidents/ReportIncident';
+import IncidentDetail from './components/incidents/IncidentDetail';
+import Help from './components/common/Help';
 
 function App() {
 
@@ -16,9 +18,11 @@ function App() {
       <Routes >
         <Route path='/' element={<Home />} />
         <Route path="/incidentList" element={<IncidentList />} />
+        <Route path="/incident/:id" element={<IncidentDetail />} />
         <Route path="/reportIncident" element={<ReportIncident />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/help' element={<Help />} />
       </Routes>
     </div>
   )
